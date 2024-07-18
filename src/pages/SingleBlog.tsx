@@ -22,7 +22,7 @@ const SingleBlog = () => {
     })()
   }, [])
   return (
-    <div className="w-screen overflow-x-scroll">
+    <div className="w-screen overflow-x-hidden">
         <div className="flex flex-col justify-between m-10 text-purple-700">
             <h1 className="font-bold text-5xl text-balance">{title}</h1>
             <h1 className="text-xl text-right dark:text-white text-black"> -{author}</h1>
