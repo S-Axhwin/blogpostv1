@@ -8,14 +8,21 @@ import {Component} from "@/pages/Stats"
 
 const App = () => {
   return (
-    <div className="">
+    <div className="h-screen overflow-y-hidden">
       <NavWrapper>
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/myblogs" element={<Myblog/>}/>
           <Route path="/newblog" element={<NewBlog/>}/>
           <Route path="/blog" element={<Blog/>}/>
-          <Route path="/test" element={<Component/>}/>
+          <Route path="/test" element={            
+            <>
+              <Component />
+              <Component />
+              <Component />
+              <Component />
+            </>
+          }/>
         </Routes>
       </NavWrapper>
       </div>

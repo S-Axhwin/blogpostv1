@@ -27,7 +27,7 @@ import { ModeToggle } from "./mode-toggle"
 
 export function NavWrapper({children}:any) {
   return (
-    <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
+    <div className="grid h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
        <div className="hidden border-r bg-muted/40 md:block">
     <div className="flex h-full max-h-screen flex-col gap-2">
       <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
@@ -69,7 +69,7 @@ export function NavWrapper({children}:any) {
             Blogs
           </Link>
           <Link
-            to="#"
+            to="/test"
             className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
           >
             <LineChart className="h-4 w-4" />
@@ -188,9 +188,10 @@ export function NavWrapper({children}:any) {
       </SignedIn>
           </>
         </header>
-        <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
+        <main className="flex-col justify-center p-4 h-screen overflow-y-scroll">
           {children}
         </main>
+        
       </div>
     </div>
   )
