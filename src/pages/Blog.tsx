@@ -11,7 +11,7 @@ const BlogSkelton = () => {
 
 const SingleCard = ({item}:any) => {
   return (
-  <div className="p-3 bg-gray-900 rounded-md hover:shadow-lg text-black bg-primary-foreground dark:bg-gray-900 dark:text-white transition-all ">
+  <div className="p-3 bg-muted rounded-md hover:shadow-lg text-black   dark:text-white transition-all ">
     <div className="text-2xl font-bold">
       {item.title}
     </div>
