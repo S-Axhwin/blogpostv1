@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, HashRouter } from 'react-router-dom'
 import './index.css'
 import { ThemeProvider } from './components/theme-provider.tsx'
 import { ClerkLoaded, ClerkLoading, ClerkProvider } from '@clerk/clerk-react';
@@ -25,9 +25,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     loading
   </ClerkLoading>
   <ClerkLoaded>
-    <BrowserRouter>
+    <HashRouter>
       <App />
-    </BrowserRouter>
+    </HashRouter>
   </ClerkLoaded>
     </ClerkProvider>
   </ThemeProvider>,
