@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import baseUrl from "@/baseUrl";
 
 const SingleBlog = () => {
 
@@ -12,7 +13,7 @@ const SingleBlog = () => {
   const [content, setContent] = useState();
   useEffect(() => {
     (async() => {
-        const res = await axios.get(`http://192.168.29.138:8787/api/v1/single/blog?id=${params.id}`);
+        const res = await axios.get(`${baseUrl}/single/blog?id=${params.id}`);
 
         const {post} = res.data
         setauthor(post.author);
