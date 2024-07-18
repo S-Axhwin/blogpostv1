@@ -98,7 +98,7 @@ export function NavWrapper({children}:any) {
     </div>
       </div>
       <div className="flex flex-col">
-        <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
+        <header className="flex h-14 items-center gap-1 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-2">
           <Sheet>
             <SheetTrigger asChild>
               <Button
@@ -106,14 +106,14 @@ export function NavWrapper({children}:any) {
                 size="icon"
                 className="shrink-0 md:hidden"
               >
-                <Menu className="h-5 w-5" />
+                <Menu className="h-4 w-4" />
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="flex flex-col">
-              <nav className="grid gap-2 text-lg font-medium">
+              <nav className="grid gap-1 text-lg font-medium">
               <div
-                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+                  className="mx-[-0.6rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
                 >
                   <ModeToggle/>
                 </div>
@@ -176,19 +176,19 @@ export function NavWrapper({children}:any) {
                 <Input
                   type="search"
                   placeholder="Search products..."
-                  className="w-full appearance-none bg-background pl-8 shadow-none md:w-2/3 lg:w-1/3"
+                  className="w-30 appearance-none bg-background pl-8 shadow-none md:w-2/3 lg:w-1/3"
                 />
               </div>
             </form>
           </div>
-          <>
+          <div className="mr-5">
           <SignedOut>
         <SignInButton />
       </SignedOut>
       <SignedIn>
         <UserButton />
       </SignedIn>
-          </>
+          </div>
         </header>
         <main className="flex-col justify-center p-4 h-screen overflow-y-scroll">
           {children}

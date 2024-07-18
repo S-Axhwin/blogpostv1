@@ -9,7 +9,7 @@ import SingleBlog from "./pages/SingleBlog";
 
 const App = () => {
   return (
-    <div className="h-screen overflow-y-hidden">
+    <div className="">
       <NavWrapper>
         <Routes>
           <Route path="/" element={<Home/>}/>
