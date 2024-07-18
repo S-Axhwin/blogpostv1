@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom"
 import {
   Bell,
-  
+  CircleUser,
+  Home,
   LineChart,
   Menu,
   Package,
@@ -20,12 +21,18 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 import { Input } from "@/components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react"
 
-export function NavWrapper({children}:any) {
+export function Dashboard() {
   return (
     <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
        <div className="hidden border-r bg-muted/40 md:block">
@@ -42,7 +49,13 @@ export function NavWrapper({children}:any) {
       </div>
       <div className="flex-1">
         <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
-          
+          <Link
+            to="#"
+            className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+          >
+            <Home className="h-4 w-4" />
+            Dashboard
+          </Link>
           <Link
             to="#"
             className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
@@ -61,11 +74,11 @@ export function NavWrapper({children}:any) {
             Products{" "}
           </Link>
           <Link
-            to="/blog"
+            to="#"
             className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
           >
             <Users className="h-4 w-4" />
-            Blogs
+            Customers
           </Link>
           <Link
             to="#"
@@ -110,39 +123,45 @@ export function NavWrapper({children}:any) {
             <SheetContent side="left" className="flex flex-col">
               <nav className="grid gap-2 text-lg font-medium">
                 <Link
-                  to="/blog"
+                  to="#"
                   className="flex items-center gap-2 text-lg font-semibold"
                 >
                   <Package2 className="h-6 w-6" />
                   <span className="sr-only">Acme Inc</span>
                 </Link>
-                
                 <Link
-                  to="/myblogs"
+                  to="#"
+                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+                >
+                  <Home className="h-5 w-5" />
+                  Dashboard
+                </Link>
+                <Link
+                  to="#"
                   className="mx-[-0.65rem] flex items-center gap-4 rounded-xl bg-muted px-3 py-2 text-foreground hover:text-foreground"
                 >
                   <ShoppingCart className="h-5 w-5" />
-                  My Blogs
-                  <Badge className="ml-auto flex h-6 w-8 p-3 shrink-0 items-center justify-center rounded-full">
-                    new
+                  Orders
+                  <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
+                    6
                   </Badge>
                 </Link>
                 <Link
-                  to="/newblog"
+                  to="#"
                   className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
                 >
                   <Package className="h-5 w-5" />
-                  new post
+                  Products
                 </Link>
                 <Link
-                  to="/blog"
+                  to="#"
                   className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
                 >
                   <Users className="h-5 w-5" />
-                  Blogs
+                  Customers
                 </Link>
                 <Link
-                  to="/test"
+                  to="#"
                   className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
                 >
                   <LineChart className="h-5 w-5" />
@@ -179,17 +198,40 @@ export function NavWrapper({children}:any) {
               </div>
             </form>
           </div>
-          <>
-          <SignedOut>
-        <SignInButton />
-      </SignedOut>
-      <SignedIn>
-        <UserButton />
-      </SignedIn>
-          </>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="secondary" size="icon" className="rounded-full">
+                <CircleUser className="h-5 w-5" />
+                <span className="sr-only">Toggle user menu</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuLabel>My Account</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Settings</DropdownMenuItem>
+              <DropdownMenuItem>Support</DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Logout</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </header>
         <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
-          {children}
+          <div className="flex items-center">
+            <h1 className="text-lg font-semibold md:text-2xl">Inventory</h1>
+          </div>
+          <div
+            className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm" x-chunk="dashboard-02-chunk-1"
+          >
+            <div className="flex flex-col items-center gap-1 text-center">
+              <h3 className="text-2xl font-bold tracking-tight">
+                You have no products
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                You can start selling as soon as you add a product.
+              </p>
+              <Button className="mt-4">Add Product</Button>
+            </div>
+          </div>
         </main>
       </div>
     </div>

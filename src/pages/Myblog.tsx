@@ -5,11 +5,6 @@ import { useUser, SignInButton } from "@clerk/clerk-react"
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const BlogSkelton = () => {
-  return (
-    <Skeleton className="h-11 w-[40rem]"></Skeleton>
-  )
-}
 
 
 const AleartBoxDraft = ({item, setTrigger}:any) => {
@@ -32,28 +27,10 @@ const PublishedCard =  ({item}:any) => {
 
 const LoadingTemp = () => {
   return (
-  <div className="flex justify-center overflow-hidden">
-        <div className="flex flex-col gap-y-28 lg:flex-row justify-center">
-          <div className="flex flex-col gap-4 justify-center">
-          <p className="text-sm text-muted-foreground text-center">
-                Published
-          </p>
-          {[1,2,3,4].map((_, ind):any => {
-            return <BlogSkelton key={ind}/>
-          })}
-          </div>
-          <div className="flex flex-col gap-4 
-          justify-center lg:justify-start">
-            <p className="text-sm text-muted-foreground text-center">
-                Drafts
-            </p>
-            {[1,2,3,4].map((_, ind) => {
-            return <BlogSkelton key={ind} />
-          })}
-          </div>
-        
-        </div>
-      </div>)
+  <div>
+
+    <Skeleton className="h-40 w-full"></Skeleton>
+  </div>)
 }
 
 const Myblog = () => {
