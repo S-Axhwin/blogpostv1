@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
-import { BrowserRouter, HashRouter } from 'react-router-dom'
+import {  HashRouter } from 'react-router-dom'
 import './index.css'
 import { ThemeProvider } from './components/theme-provider.tsx'
 import { ClerkLoaded, ClerkLoading, ClerkProvider } from '@clerk/clerk-react';
