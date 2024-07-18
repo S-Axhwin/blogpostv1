@@ -18,10 +18,7 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart"
 import { useEffect, useState } from "react"
-import axios from "axios"
-import baseUrl from "@/baseUrl"
-import { useUser } from "@clerk/clerk-react"
-import { Skeleton } from "@/components/ui/skeleton"
+
 
 
 const chartConfig = {
@@ -30,25 +27,30 @@ const chartConfig = {
     color: "hsl(var(--chart-1))",
     icon: Activity
   },
+  data2: {
+    label: "data2",
+    color: "hsl(var(--chart-3))",
+    icon: Activity
+  },
 } satisfies ChartConfig
 
 export function Component() {
-  const { user } = useUser();
+  
   const [chartData, setChartData] = useState([]);
 
   useEffect(() => {
     (async() => {
-        const {data} = await axios.get(`${baseUrl}/stats?username=${user?.fullName}`);
-        
-        console.log(data.blogs);
-    
-        setChartData(data.blogs);
+      
+        setChartData([{ month: "January", data1: 186, data2: 120 },
+          { month: "February", data1: 305,  data2: 110},
+          { month: "March", data1: 237,  data2: 230},
+          { month: "April", data1: 73, data2: 100 },
+          { month: "May", data1: 209, data2: 190},
+          { month: "June", data1: 214, data2: 90 }] as any);
     })()
   }, [])
 
-  if(chartData.length ==0 ) {
-    return <Skeleton className="w-full h-60"/>
-  }
+  
   return (
     <Card>
       <CardHeader>
@@ -85,6 +87,13 @@ export function Component() {
               fill="var(--color-data1)"
               fillOpacity={0.4}
               stroke="var(--color-data1)"
+            />
+            <Area
+              dataKey="data2"
+              type="natural"
+              fill="var(--color-data2)"
+              fillOpacity={0.4}
+              stroke="var(--color-data2)"
             />
           </AreaChart>
         </ChartContainer>
