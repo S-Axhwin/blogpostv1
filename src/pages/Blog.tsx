@@ -49,10 +49,12 @@ const Blog = () => {
     )
   }
   
-    return <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
+    return <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 pb-12">
     {blogs.map((item:any, ind) => {
       return <SingleCard item={item} key={ind}/>
-    })}</div>
+    })}
+    
+    </div>
 
 }
 
