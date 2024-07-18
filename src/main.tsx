@@ -15,7 +15,7 @@ if (!KEY) {
 }
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <ThemeProvider defaultTheme='dark'>
+  <ThemeProvider defaultTheme='light'>
     <ClerkProvider publishableKey={KEY} appearance={ {
   baseTheme: [dark, neobrutalism],
   variables: { colorTextOnPrimaryBackground: "black" }

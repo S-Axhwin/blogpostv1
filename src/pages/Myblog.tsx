@@ -15,7 +15,7 @@ const BlogSkelton = () => {
 const AleartBoxDraft = ({item, setTrigger}:any) => {
   return (
     <AlertDialogDemo id={item.id} setTrigger={setTrigger}>
-      <div className="flex bg-slate-900 hover:bg-slate-800 transition-colors p-4 rounded-md mx-10 justify-center">
+      <div className="flex bg-background hover:bg-primary-foreground hover:text-primary transition-colors p-4 rounded-md mx-10 justify-center">
           {item.title}
       </div>
     </AlertDialogDemo>
