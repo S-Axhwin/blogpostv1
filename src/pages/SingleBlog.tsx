@@ -22,7 +22,8 @@ const SingleBlog = () => {
     })()
   }, [])
   return (
-    <div className="w-screen overflow-x-hidden">
+    <div className="w-full overflow-x-scroll flex justify-center no-scrollbar">
+      <div className=" no-scrollbar">
         <div className="flex flex-col justify-between m-10 text-purple-700">
             <h1 className="font-bold text-5xl text-balance">{title}</h1>
             <h1 className="text-xl text-right dark:text-white text-black"> -{author}</h1>
@@ -32,6 +33,7 @@ const SingleBlog = () => {
         <Markdown>
           {content}
         </Markdown>
+        </div>
         </div>
         </div>
     </div>
