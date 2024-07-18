@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 const AleartBoxDraft = ({item, setTrigger}:any) => {
   return (
     <AlertDialogDemo id={item.id} setTrigger={setTrigger}>
-      <div className="flex bg-primary-foreground hover:text-primary transition-colors p-4 rounded-md mx-10 justify-center">
+      <div className="flex bg-primary-foreground hover:text-primary transition-colors p-4 rounded-md mx-10 justify-center dark:text-violet-900">
           {item.title}
       </div>
     </AlertDialogDemo>

@@ -2,16 +2,18 @@ import baseUrl from "@/baseUrl";
 import { Skeleton } from "@/components/ui/skeleton";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const BlogSkelton = () => {
   return (
-    <Skeleton className="h-11 w-full"></Skeleton>
+    <Skeleton className="h-24 w-full"></Skeleton>
   )
 }
 
 const SingleCard = ({item}:any) => {
   return (
-  <div className="p-3 bg-muted rounded-md hover:shadow-lg text-black   dark:text-white transition-all ">
+  <Link to={`/blog/${item?.id}`}>
+  <div className="p-3 bg-muted rounded-md hover:shadow-lg text-black dark:text-white transition-all ">
     <div className="text-2xl font-bold">
       {item.title}
     </div>
@@ -23,7 +25,8 @@ const SingleCard = ({item}:any) => {
       {item.content}
       </div>
     </div>
-  </div>)
+  </div>
+  </Link>)
 } 
 
 
@@ -41,8 +44,8 @@ const Blog = () => {
 
   if(isloading) {
     return (
-      <div className="flex gap-4 flex-col ">
-      {[1,2,3,4].map((_, ind) => {
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 pb-12">
+      {[1,2,3,4,5,6,7,8,9,10].map((_, ind) => {
             return <BlogSkelton key={ind} />
           })}
       </div>
