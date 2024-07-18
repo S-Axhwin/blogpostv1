@@ -5,7 +5,6 @@ import {
   LineChart,
   Menu,
   Package,
-  Package2,
   Search,
   ShoppingCart,
   Users,
