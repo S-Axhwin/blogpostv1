@@ -24,6 +24,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react"
+import { ModeToggle } from "./mode-toggle"
 
 export function NavWrapper({children}:any) {
   return (
@@ -31,10 +32,11 @@ export function NavWrapper({children}:any) {
        <div className="hidden border-r bg-muted/40 md:block">
     <div className="flex h-full max-h-screen flex-col gap-2">
       <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
-        <Link to="/" className="flex items-center gap-2 font-semibold">
-          <Package2 className="h-6 w-6" />
-          <span className="">Acme Inc</span>
-        </Link>
+      <div
+                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+                >
+                  <ModeToggle/>
+                </div>
         <Button variant="outline" size="icon" className="ml-auto h-8 w-8">
           <Bell className="h-4 w-4" />
           <span className="sr-only">Toggle notifications</span>
@@ -44,21 +46,21 @@ export function NavWrapper({children}:any) {
         <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
           
           <Link
-            to="#"
+            to="/newblog"
             className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
           >
             <ShoppingCart className="h-4 w-4" />
-            Orders
-            <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
-              6
+            New Post
+            <Badge className="ml-auto flex h-6 w-fit shrink-0 items-center justify-center rounded-full">
+              new
             </Badge>
           </Link>
           <Link
-            to="#"
+            to="/myblogs"
             className="flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary"
           >
             <Package className="h-4 w-4" />
-            Products{" "}
+            My Blogs
           </Link>
           <Link
             to="/blog"
@@ -109,13 +111,11 @@ export function NavWrapper({children}:any) {
             </SheetTrigger>
             <SheetContent side="left" className="flex flex-col">
               <nav className="grid gap-2 text-lg font-medium">
-                <Link
-                  to="/blog"
-                  className="flex items-center gap-2 text-lg font-semibold"
+              <div
+                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
                 >
-                  <Package2 className="h-6 w-6" />
-                  <span className="sr-only">Acme Inc</span>
-                </Link>
+                  <ModeToggle/>
+                </div>
                 
                 <Link
                   to="/myblogs"
@@ -148,6 +148,7 @@ export function NavWrapper({children}:any) {
                   <LineChart className="h-5 w-5" />
                   Analytics
                 </Link>
+                
               </nav>
               <div className="mt-auto">
                 <Card>

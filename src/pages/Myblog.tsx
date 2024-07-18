@@ -19,7 +19,7 @@ const AleartBoxDraft = ({item, setTrigger}:any) => {
 
 const PublishedCard =  ({item}:any) => {
   return (
-    <div className="flex bg-green-950 hover:bg-green-900 transition-colors p-4 rounded-md mx-10 justify-center">
+    <div className="flex bg-green-100 text-black hover:bg-green-200 transition-colors p-4 rounded-md mx-10 justify-center">
       {item.title}
     </div>
   )
