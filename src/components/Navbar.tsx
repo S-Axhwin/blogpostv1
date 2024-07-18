@@ -8,6 +8,8 @@ import {
   Search,
   ShoppingCart,
   Users,
+  Plus,
+  Book
 } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
@@ -48,26 +50,27 @@ export function NavWrapper({children}:any) {
             to="/newblog"
             className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
           >
-            <ShoppingCart className="h-4 w-4" />
+            <Plus className="h-4 w-4" />
             New Post
             <Badge className="ml-auto flex h-6 w-fit shrink-0 items-center justify-center rounded-full">
               new
             </Badge>
           </Link>
           <Link
-            to="/myblogs"
-            className="flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary"
-          >
-            <Package className="h-4 w-4" />
-            My Blogs
-          </Link>
-          <Link
             to="/blog"
             className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
           >
-            <Users className="h-4 w-4" />
-            Blogs
+            <Search className="h-4 w-4" />
+            Explore
           </Link>
+          <Link
+            to="/myblogs"
+            className="flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary"
+          >
+            <Book className="h-4 w-4" />
+            My Blogs
+          </Link>
+          
           <Link
             to="/test"
             className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
