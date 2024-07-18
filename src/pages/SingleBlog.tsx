@@ -1,16 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
 import baseUrl from "@/baseUrl";
+import Markdown from "markdown-to-jsx";
+
 
 const SingleBlog = () => {
 
   const params = useParams();
   const [author, setauthor] = useState();
   const [title, setTitle] = useState();
-  const [content, setContent] = useState();
+  const [content, setContent] = useState("");
   useEffect(() => {
     (async() => {
         const res = await axios.get(`${baseUrl}/single/blog?id=${params.id}`);
@@ -27,9 +27,14 @@ const SingleBlog = () => {
             <h1 className="font-bold text-5xl text-balance">{title}</h1>
             <h1 className="text-xl text-right dark:text-white text-black"> -{author}</h1>
         </div>
-        <ReactMarkdown  remarkPlugins={[remarkGfm]} >
+        <div>
+        <div className={`prose prose-h1:text-4xl prose-h1:dark:text-white prose-p:dark:text-white prose-p:text-black prose-strong:text-white prose-ul:list-decimal prose-a:text-blue-500 prose-ul:dark:text-white text-slate-500 prose-h2:dark:text-slate-200`}>
+
+        <Markdown>
           {content}
-        </ReactMarkdown>
+        </Markdown>
+        </div>
+        </div>
     </div>
   )
 }

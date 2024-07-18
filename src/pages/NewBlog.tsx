@@ -38,7 +38,7 @@ const NewBlog = () => {
               className="text-2xl h-fit text-center" />
             <Textarea
               onChange={(e) => setContent(e.target.value)}
-              placeholder="Type your message here."
+              placeholder="Type your markdown here and save to draft."
               className="h-72" />
             <p className="text-sm text-muted-foreground">
                 This Blog will be send to draft.
