@@ -41,7 +41,8 @@ export function Component() {
   useEffect(() => {
     (async() => {
       
-        setChartData([{ month: "January", data1: 186, data2: 120 },
+        setChartData([
+          { month: "January", data1: 186, data2: 120 },
           { month: "February", data1: 305,  data2: 110},
           { month: "March", data1: 237,  data2: 230},
           { month: "April", data1: 73, data2: 100 },

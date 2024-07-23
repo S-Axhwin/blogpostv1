@@ -6,6 +6,7 @@ import { NavWrapper } from "./components/Navbar";
 import NewBlog from "./pages/NewBlog";
 import {Component} from "@/pages/Stats"
 import SingleBlog from "./pages/SingleBlog";
+import { ComponentPi } from "./pages/PiChart";
 
 const App = () => {
   return (
@@ -19,10 +20,11 @@ const App = () => {
           <Route path="/blog/:id" element={<SingleBlog/>}/>
           <Route path="/test" element={            
             <>
+            <div className="grid place-items-stretch grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+              <ComponentPi />
               <Component />
               <Component />
-              <Component />
-              <Component />
+            </div>
             </>
           }/>
         </Routes>
