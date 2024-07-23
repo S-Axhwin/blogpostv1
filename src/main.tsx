@@ -5,6 +5,7 @@ import './index.css'
 import { ThemeProvider } from './components/theme-provider.tsx'
 import { ClerkLoaded, ClerkLoading, ClerkProvider } from '@clerk/clerk-react';
 import { dark, neobrutalism } from '@clerk/themes';
+import { Loader2 } from 'lucide-react'
 
 
 const KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
@@ -22,7 +23,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 }
 } >
   <ClerkLoading>
-    loading
+    <div className='h-screen w-full grid place-items-center'>
+    <Loader2 className='animate-spin'></Loader2>
+    </div>
   </ClerkLoading>
   <ClerkLoaded>
     <HashRouter>

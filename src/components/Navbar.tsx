@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom"
 import {
   Bell,
-  
   LineChart,
   Menu,
   Search,
@@ -26,7 +25,7 @@ import { ModeToggle } from "./mode-toggle"
 
 export function NavWrapper({children}:any) {
   return (
-    <div className="grid h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
+    <div className="grid h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr] no-scrollbar">
        <div className="hidden border-r bg-muted/40 md:block">
     <div className="flex h-full max-h-screen flex-col gap-2">
       <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
@@ -187,7 +186,7 @@ export function NavWrapper({children}:any) {
       </SignedIn>
           </div>
         </header>
-        <main className="flex-col justify-center p-4 h-screen overflow-y-scroll">
+        <main className="flex-col justify-center p-4 h-screen overflow-y-scroll no-scrollbar">
           {children}
         </main>
         

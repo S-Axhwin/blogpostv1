@@ -10,8 +10,8 @@ import { ComponentPi } from "./pages/PiChart";
 
 const App = () => {
   return (
-    <div className="overflow-hidden">
-      <NavWrapper>
+    <div className="overflow-hidden no-scrollbar">
+      <NavWrapper className="no-scrollbar">
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/myblogs" element={<Myblog/>}/>
@@ -20,7 +20,7 @@ const App = () => {
           <Route path="/blog/:id" element={<SingleBlog/>}/>
           <Route path="/test" element={            
             <>
-            <div className="grid place-items-stretch grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+            <div className="grid place-items-stretch grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 no-scrollbar">
               <ComponentPi />
               <Component />
               <Component />

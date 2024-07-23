@@ -22,7 +22,7 @@ const SingleBlog = () => {
     })()
   }, [])
   return (
-    <div className="h-screen w-screen lg:w-full overflow-y-scroll flex lg:justify-center ">
+    <div className="h-screen w-screen lg:w-full overflow-y-scroll flex lg:justify-center no-scrollbar">
       <div className="p-3">
       <div className="flex justify-between">
       <h1 className="text-5xl font-bold uppercase text-primary">
