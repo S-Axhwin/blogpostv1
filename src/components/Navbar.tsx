@@ -4,10 +4,7 @@ import {
   
   LineChart,
   Menu,
-  Package,
   Search,
-  ShoppingCart,
-  Users,
   Plus,
   Book
 } from "lucide-react"
@@ -117,31 +114,31 @@ export function NavWrapper({children}:any) {
                 >
                   <ModeToggle/>
                 </div>
-                
                 <Link
-                  to="/myblogs"
-                  className="mx-[-0.65rem] flex items-center text-muted-foreground gap-4 rounded-xl px-3 py-2 hover:text-foreground"
+                  to="/newblog"
+                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
                 >
-                  <ShoppingCart className="h-5 w-5" />
-                  My Blogs
+                  <Plus/>
+                  new post
                   <Badge className="ml-auto flex h-6 w-8 p-3 shrink-0 items-center  justify-center rounded-full">
                     new
                   </Badge>
                 </Link>
                 <Link
-                  to="/newblog"
-                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-                >
-                  <Package className="h-5 w-5" />
-                  new post
-                </Link>
-                <Link
                   to="/blogs"
                   className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
                 >
-                  <Users className="h-5 w-5" />
-                  Blogs
+                  <Search className="h-5 w-5" />
+                  Explore
                 </Link>
+                <Link
+                  to="/myblogs"
+                  className="mx-[-0.65rem] flex items-center text-muted-foreground gap-4 rounded-xl px-3 py-2 hover:text-foreground"
+                >
+                  <Book className="h-5 w-5" />
+                  My Blogs
+                </Link>
+               
                 <Link
                   to="/test"
                   className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
