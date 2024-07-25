@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
 import baseUrl from "@/baseUrl";
 import Markdown from "markdown-to-jsx";
+import { useParams } from "react-router-dom";
 
 
 const SingleBlog = () => {

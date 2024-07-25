@@ -3,15 +3,18 @@ import { AlertDialogDemo } from "@/components/PublishCard";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useUser, SignInButton } from "@clerk/clerk-react"
 import axios from "axios";
+import { Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
 
 
 
 const AleartBoxDraft = ({item, setTrigger}:any) => {
+  const [loading, setLoading] = useState(false);
   return (
-    <AlertDialogDemo id={item.id} setTrigger={setTrigger}>
+    <AlertDialogDemo id={item.id} setTrigger={setTrigger} setLoading={setLoading}>
       <div className="flex bg-primary-foreground hover:text-primary transition-colors p-4 rounded-md mx-10 justify-center dark:text-violet-900">
           {item.title}
+          {loading?<Loader2 className=" animate-spin"/>:""}
       </div>
     </AlertDialogDemo>
   )
@@ -21,6 +24,7 @@ const PublishedCard =  ({item}:any) => {
   return (
     <div className="flex bg-green-100 text-black hover:bg-green-200 transition-colors p-4 rounded-md mx-10 justify-center">
       {item.title}
+      
     </div>
   )
 }
@@ -28,7 +32,6 @@ const PublishedCard =  ({item}:any) => {
 const LoadingTemp = () => {
   return (
   <div>
-
     <Skeleton className="h-40 w-full"></Skeleton>
   </div>)
 }
@@ -36,10 +39,9 @@ const LoadingTemp = () => {
 const Myblog = () => {
   const { user } = useUser();
   
-  const [loading, setLoading] = useState(true);
   const [notpubblogs, setNotpubblogs] = useState([]);
   const [pubblogs, setPubblogs] = useState([]);
-
+  const [loadingpage, setLoadingPage] = useState(true);
   const [trigger, setTrigger] = useState(true);
   useEffect(() => {
     (async () => {
@@ -53,21 +55,21 @@ const Myblog = () => {
         return(!item.published);
       }));
 
-      setLoading(false);
+      setLoadingPage(false);
       }
     })()
   }, [trigger]);
 
   
   if(!user) return <SignInButton></SignInButton>
-  if(loading){
+  if(loadingpage){
     return (
       <LoadingTemp/>
     )
   } else {
     return (
       <div className="flex justify-center">
-        <div className="flex flex-col gap-y-28 lg:flex-row lg:w-[80%] justify-center">
+        <div className="flex flex-col gap-y-28 lg:flex-row lg:w-[80%] justify-center z-10">
           <div className="flex flex-col gap-4 justify-center">
           <p className="text-sm text-muted-foreground text-center">
                 Published
@@ -84,7 +86,7 @@ const Myblog = () => {
             </p>
             {notpubblogs.map((item:any, ind:any) =>
              {
-              return (<AleartBoxDraft key={ind} item={item} setTrigger={setTrigger}/>)
+              return (<AleartBoxDraft key={ind} item={item} setTrigger={setTrigger}  />)
             })}
             {notpubblogs.length == 0?<div className="text-sm text-muted-foreground text-center">No blog in draft</div>: ""}
           </div>

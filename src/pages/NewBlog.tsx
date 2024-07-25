@@ -15,7 +15,7 @@ const NewBlog = () => {
   const { user } = useUser();
 
   if(!user) return <><SignInButton /></>;
-  const [readme, setReadme] = useState(true);
+  const [readme, setReadme] = useState(false);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("")
 

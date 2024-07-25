@@ -13,7 +13,7 @@ import {
 import axios from "axios"
   
   
-  export function AlertDialogDemo({children, id, setTrigger}:any) {
+  export function AlertDialogDemo({children, id, setTrigger, setLoading}:any) {
 
     
     return (
@@ -31,8 +31,10 @@ import axios from "axios"
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>
             <AlertDialogAction onClick={async() => {
+              setLoading(true)
               await axios.put(`${baseUrl}/blog`, {id});
               setTrigger((cur:boolean) => (!cur))
+              setLoading(false)
             }}>Continue</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
