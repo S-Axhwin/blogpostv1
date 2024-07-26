@@ -18,7 +18,6 @@ const App = () => {
           <Route path="/newblog" element={<NewBlog/>}/>
           <Route path="/blogs" element={<Blog/>}/>
           <Route path="/blog/:id" element={<SingleBlog/>}/>
-
           <Route path="/test" element={<StactPage/>}/>
         </Routes>
       </NavWrapper>
